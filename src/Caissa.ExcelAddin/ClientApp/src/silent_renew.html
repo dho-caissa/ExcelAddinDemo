@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <meta name="robots" content="noindex" />
+    <script src="oidc-client/oidc-client.min.js"></script>
+    <!-- <script src="office-js/office.js"></script> -->
+</head>
+
+<body>
+    <script>
+        (function () {
+            new Oidc.UserManager({ userStore: new Oidc.WebStorageStateStore({ store: localStorage }) }).signinSilentCallback();
+        })();
+
+        // Office.initialize = function () {
+        //     new Oidc.UserManager({ userStore: new Oidc.WebStorageStateStore({ store: localStorage }) }).signinSilentCallback();
+        // };
+    </script>
+</body>
+
+</html>

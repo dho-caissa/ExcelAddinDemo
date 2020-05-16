@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28621.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9140324C-F33A-4403-826D-0DF86A01DBD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{5ED3ED37-5A83-4A30-8E7F-591FE11BA620}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\.gitignore = ..\.gitignore
+		global.json = global.json
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caissa.ExcelAddin", "src\Caissa.ExcelAddin\Caissa.ExcelAddin.csproj", "{05BF5D42-142B-4246-BB74-4FC720D570FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{FCDE7462-A61D-4D43-85A0-7ADC81F852AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Development|Any CPU = Development|Any CPU
+		Development|x64 = Development|x64
+		Development|x86 = Development|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|x64.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Debug|x86.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|x64.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|x64.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|x86.ActiveCfg = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Development|x86.Build.0 = Debug|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|x64.ActiveCfg = Release|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|x64.Build.0 = Release|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|x86.ActiveCfg = Release|Any CPU
+		{05BF5D42-142B-4246-BB74-4FC720D570FA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05BF5D42-142B-4246-BB74-4FC720D570FA} = {FCDE7462-A61D-4D43-85A0-7ADC81F852AD}
+		{FCDE7462-A61D-4D43-85A0-7ADC81F852AD} = {9140324C-F33A-4403-826D-0DF86A01DBD0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5883DC5F-23AA-467A-8766-FE83344C13BF}
+	EndGlobalSection
+EndGlobal

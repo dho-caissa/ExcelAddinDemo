@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+          xsi:type="TaskPaneApp">
+
+    <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+    <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+    <Id>481c7f24-9a3d-4264-9e43-65fa79b9ded6</Id>
+
+    <!--Version. Updates from the store only get triggered if there is a version change. -->
+    <Version>1.0.0.7</Version>
+    <ProviderName>Caissa LLC</ProviderName>
+    <DefaultLocale>en-US</DefaultLocale>
+    <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+    <DisplayName DefaultValue="Caissa Data and Reporting Tool" />
+    <Description DefaultValue="The Caissa Data and Reporting Tool allows you to seamlessly import or export data"/>
+
+    <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+    <IconUrl DefaultValue="https://cdn.caissallc.com/cdn/icon-32.png" />
+    <HighResolutionIconUrl DefaultValue="https://cdn.caissallc.com/cdn/hi-res-icon.png"/>
+
+    <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
+    <SupportUrl DefaultValue="https://caissallc.com/support-page/"/>
+
+    <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
+    <AppDomains>
+        <AppDomain>https://localhost:44340</AppDomain>
+        <AppDomain>https://localhost:44350</AppDomain>
+        <AppDomain>https://localhost:44360</AppDomain>
+        <AppDomain>https://login.microsoftonline.com</AppDomain>
+        <AppDomain>https://secure.aadcdn.microsoftonline-p.com</AppDomain>
+        <AppDomain>https://cdn.caissallc.com</AppDomain>
+    </AppDomains>
+    <!--End Basic Settings. -->
+
+    <!--Begin TaskPane Mode integration. This section is used if there are no VersionOverrides or if the Office client version does not support add-in commands. -->
+    <Hosts>
+        <Host Name="Workbook" />
+    </Hosts>
+    <Requirements>
+        <Sets DefaultMinVersion="1.1">
+            <Set Name="ExcelApi" MinVersion="1.1"/>
+            <Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>
+        </Sets>
+    </Requirements>
+    <DefaultSettings>
+        <SourceLocation DefaultValue="https://localhost:44360/index.html" />
+    </DefaultSettings>
+    <!-- End TaskPane Mode integration.  -->
+
+    <Permissions>ReadWriteDocument</Permissions>
+
+    <!-- Begin Add-in Commands Mode integration. -->
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+        <Requirements>
+            <bt:Sets DefaultMinVersion="1.1">
+                <bt:Set Name="ExcelApi" MinVersion="1.1"/>
+            </bt:Sets>
+        </Requirements>
+        <!-- The Hosts node is required. -->
+        <Hosts>
+            <!-- Each host can have a different set of commands. -->
+            <!-- Excel host is Workbook, Word host is Document, and PowerPoint host is Presentation. -->
+            <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest. -->
+            <Host xsi:type="Workbook">
+                <AllFormFactors>
+                    <ExtensionPoint xsi:type="CustomFunctions">
+                        <Script>
+                            <SourceLocation resid="Caissa.CustomFunction.Js" />
+                        </Script>
+                        <Page>
+                            <SourceLocation resid="Caissa.CustomFunction.Html"/>
+                        </Page>
+                        <Metadata>
+                            <SourceLocation resid="Caissa.CustomFunction.Json" />
+                        </Metadata>
+                        <Namespace resid="Caissa.CustomFunction.Namespace" />
+                    </ExtensionPoint>
+                </AllFormFactors>
+                <!-- Form factor. Currently only DesktopFormFactor is supported. -->
+                <DesktopFormFactor>
+                    <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
+                    <GetStarted>
+                        <!-- Title of the Getting Started callout. resid points to a ShortString resource -->
+                        <Title resid="Caissa.GetStarted.Title"/>
+
+                        <!-- Description of the Getting Started callout. resid points to a LongString resource -->
+                        <Description resid="Caissa.GetStarted.Description"/>
+
+                        <!-- Point to a url resource which details how the add-in should be used. -->
+                        <LearnMoreUrl resid="Caissa.GetStarted.LearnMoreUrl"/>
+                    </GetStarted>
+                    <!-- Function file is a HTML page that includes the JavaScript where functions for ExecuteAction will be called.
+            Think of the FunctionFile as the code behind ExecuteFunction. -->
+                    <FunctionFile resid="Caissa.DesktopFunctionFile.Url" />
+
+                    <!-- PrimaryCommandSurface is the main Office Ribbon. -->
+                    <ExtensionPoint xsi:type="PrimaryCommandSurface">
+                        <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
+                        <OfficeTab id="TabHome">
+                            <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
+                            <Group id="Caissa.Group1">
+                                <!-- Label for your group. resid must point to a ShortString resource. -->
+                                <Label resid="Caissa.Group1Label" />
+                                <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+                                <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+                                <Icon>
+                                    <bt:Image size="16" resid="Caissa.tpicon_16x16" />
+                                    <bt:Image size="32" resid="Caissa.tpicon_32x32" />
+                                    <bt:Image size="80" resid="Caissa.tpicon_80x80" />
+                                </Icon>
+
+                                <!-- Control. It can be of type "Button" or "Menu". -->
+                                <Control xsi:type="Button" id="Caissa.TaskpaneButton">
+                                    <Label resid="Caissa.TaskpaneButton.Label" />
+                                    <Supertip>
+                                        <!-- ToolTip title. resid must point to a ShortString resource. -->
+                                        <Title resid="Caissa.TaskpaneButton.Label" />
+                                        <!-- ToolTip description. resid must point to a LongString resource. -->
+                                        <Description resid="Caissa.TaskpaneButton.Tooltip" />
+                                    </Supertip>
+                                    <Icon>
+                                        <bt:Image size="16" resid="Caissa.tpicon_16x16" />
+                                        <bt:Image size="32" resid="Caissa.tpicon_32x32" />
+                                        <bt:Image size="80" resid="Caissa.tpicon_80x80" />
+                                    </Icon>
+
+                                    <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                                    <Action xsi:type="ShowTaskpane">
+                                        <TaskpaneId>ButtonId1</TaskpaneId>
+                                        <!-- Provide a url resource id for the location that will be displayed on the task pane. -->
+                                        <SourceLocation resid="Caissa.Taskpane.Url" />
+                                    </Action>
+                                </Control>
+                            </Group>
+                        </OfficeTab>
+                    </ExtensionPoint>
+                </DesktopFormFactor>
+            </Host>
+        </Hosts>
+
+        <!-- You can use resources across hosts and form factors. -->
+        <Resources>
+            <bt:Images>
+                <bt:Image id="Caissa.tpicon_16x16" DefaultValue="https://cdn.caissallc.com/cdn/icon-16.png" />
+                <bt:Image id="Caissa.tpicon_32x32" DefaultValue="https://cdn.caissallc.com/cdn/icon-32.png" />
+                <bt:Image id="Caissa.tpicon_80x80" DefaultValue="https://cdn.caissallc.com/cdn/icon-80.png" />
+            </bt:Images>
+            <bt:Urls>
+                <bt:Url id="Caissa.Taskpane.Url" DefaultValue="https://localhost:44360/index.html" />
+                <bt:Url id="Caissa.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+                <bt:Url id="Caissa.DesktopFunctionFile.Url" DefaultValue="https://localhost:44360/function-file/function-file.html" />
+                <bt:Url id="Caissa.CustomFunction.Html" DefaultValue="https://localhost:44360/customfunctions/dist/functions.html" />
+                <bt:Url id="Caissa.CustomFunction.Js" DefaultValue="https://localhost:44360/customfunctions/dist/functions.js" />
+                <bt:Url id="Caissa.CustomFunction.Json" DefaultValue="https://localhost:44360/customfunctions/dist/functions.json" />
+            </bt:Urls>
+            <!-- ShortStrings max characters==125. -->
+            <bt:ShortStrings>
+                <bt:String id="Caissa.TaskpaneButton.Label" DefaultValue="Open" />
+                <bt:String id="Caissa.Group1Label" DefaultValue="Caissa Data and Reporting Tool" />
+                <bt:String id="Caissa.GetStarted.Title" DefaultValue="Get started with the Caissa Data and Reporting Tool!" />
+                <bt:String id="Caissa.TabLabel" DefaultValue="Caissa Data and Reporting Tool" />
+                <bt:String id="Caissa.CustomFunction.Namespace" DefaultValue="CAISSA" />
+            </bt:ShortStrings>
+            <!-- LongStrings max characters==250. -->
+            <bt:LongStrings>
+                <bt:String id="Caissa.TaskpaneButton.Tooltip" DefaultValue="Open the Caissa Data and Reporting Tool" />
+                <bt:String id="Caissa.GetStarted.Description" DefaultValue="The Caissa Data and Reporting Tool loaded successfully. Click the 'Open Caissa Data and Reporting Tool' button in the task pane to get started." />
+            </bt:LongStrings>
+        </Resources>
+    </VersionOverrides>
+    <!-- End Add-in Commands Mode integration. -->
+
+</OfficeApp>

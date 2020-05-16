@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "outFile": "customfunctions.js",
+        "inlineSourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "typeRoots": [
+            "../node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "types": [
+            "office-js",
+            "jquery"
+        ]
+    },
+    "include": [
+        "./customfunction/*.ts"
+    ]
+}
