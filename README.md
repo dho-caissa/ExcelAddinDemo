@@ -13,7 +13,7 @@ How to run:
 6. In any cell of excel worksheet, run custom function: =CAISSA.FUND.MARKETVALUE.FAIL(). 
    This makes a web request that takes 70 seconds. The call returns Network Request Failed error.
 7. In any cell of excel worksheet, run custom function: =CAISSA.FUND.MARKETVALUE.SUCCESS(). 
-   This makes a web request that takes 70 seconds. The call returns number and is shown in the excel cell.
+   This makes a web request that takes 5 seconds. The call returns number and is shown in the excel cell.
 
 Code for custom functions is located in \src\Caissa.ExcelAddin\CustomFunctions\src\functions.ts
 
