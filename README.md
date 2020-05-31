@@ -7,7 +7,8 @@ How to run:
 4. In src\Caissa.ExcelAddin, Run "Dotnet Run Watch". This should start application with port 44360
     - or Start the application inside VS.
 5. Open Excel, in Trust Center/Trusted Add-In Catalog, add manifest file in Trusted Catalog Table.
-     You can find Trust Center/Trusted Add-In Catalog in Excel option. 
+     - You can find Trust Center/Trusted Add-In Catalog in Excel option
+     - The manifest file is in src\Caissa.ExcelAddin\ClientApp\src
 6. Add Add-In
     - Select "Insert", then "My Add-In". 
     - In Shared Folder, add "CAISSA Data and Report Tool"
