@@ -1,7 +1,8 @@
 How to run: 
 
 1. Install Nodejs.
-2. In src\Caissa.ExcelAddin\CustomFunctions, Run "NPM install" and "Yarn install"
+2. In src\Caissa.ExcelAddin\CustomFunctions, Run "NPM install"
+3. In src\Caissa.ExcelAddin\clientApp, run "npm install"
 3. In src\Caissa.ExcelAddin\CustomFunctions, Run "npm run-script build"
 4. In src\Caissa.ExcelAddin, Run "Dotnet Run Watch". This should start application with port 44360
     - or Start the application inside VS.
