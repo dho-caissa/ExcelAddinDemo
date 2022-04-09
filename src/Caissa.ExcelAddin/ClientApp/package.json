@@ -42,7 +42,7 @@
     "jquery": "^3.4.1",
     "jsnlog": "^2.29.0",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-drag-to-select": "^3.1.1",
     "office-addin-validator": "^1.0.5",
     "office-js": "^0.1.0",
